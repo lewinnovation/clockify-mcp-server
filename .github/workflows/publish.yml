@@ -37,4 +37,4 @@ jobs:
         run: pnpm run smoke
 
       - name: Publish to npm
-        run: npm publish
+        run: NODE_AUTH_TOKEN="" npm publish
