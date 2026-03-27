@@ -46,9 +46,25 @@ node dist/index.js
 
 MCP tool handlers are registered from `src/tools/register.ts` (shared helpers in `src/tools/helpers.ts`).
 
-## MCP client configuration
+## MCP client setup (popular AI agent tools)
 
-Point your MCP client at this package’s entrypoint, for example:
+Use this server definition in your MCP client:
+
+```json
+{
+  "mcpServers": {
+    "clockify": {
+      "command": "npx",
+      "args": ["-y", "@lewinnovation/clockify-mcp-server"],
+      "env": {
+        "CLOCKIFY_API_KEY": "your-key"
+      }
+    }
+  }
+}
+```
+
+If you prefer running a local clone, use:
 
 ```json
 {
@@ -64,7 +80,42 @@ Point your MCP client at this package’s entrypoint, for example:
 }
 ```
 
-If you install the package from git or publish it to a registry, you can use `pnpm exec clockify-mcp-server` or `npx @lewinnovation/clockify-mcp-server` instead of a path to `dist/index.js`, provided the built `dist/` is available.
+### Cursor
+
+Add the JSON entry above to:
+
+- Workspace config: `.cursor/mcp.json`
+- Or user config: `~/.cursor/mcp.json`
+
+Then reload Cursor (or restart the MCP server from Cursor settings).
+
+### Claude Desktop
+
+Add the same `mcpServers.clockify` entry to Claude Desktop MCP config:
+
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+Restart Claude Desktop after saving the config.
+
+### Claude Code (CLI)
+
+From your project directory:
+
+```bash
+claude mcp add clockify --env CLOCKIFY_API_KEY=your-key -- npx -y @lewinnovation/clockify-mcp-server
+```
+
+Or add the same JSON server entry to your Claude Code MCP config file if you manage MCP servers declaratively.
+
+### Other MCP-compatible agent tools
+
+For tools such as Cline, Roo Code, and Windsurf, add the same server command/env block in that tool's MCP server settings UI or config file:
+
+- `command`: `npx`
+- `args`: `["-y", "@lewinnovation/clockify-mcp-server"]`
+- `env.CLOCKIFY_API_KEY`: your Clockify API key
+
+The server uses stdio transport, so no host/port configuration is required.
 
 ## Tools
 
