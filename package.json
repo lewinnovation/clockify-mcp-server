@@ -1,6 +1,6 @@
 {
   "name": "@lewinnovation/clockify-mcp-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCP server for the Clockify time-tracking API (curated tools + generic passthrough)",
   "type": "module",
   "main": "dist/index.js",
@@ -38,7 +38,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.25.1",
+    "@modelcontextprotocol/sdk": "1.28.0",
     "openapi-fetch": "^0.15.0",
     "zod": "^3.25.76"
   },
