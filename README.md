@@ -37,6 +37,8 @@ Or after `pnpm run build`:
 node dist/index.js
 ```
 
+MCP tool handlers are registered from `src/tools/register.ts` (shared helpers in `src/tools/helpers.ts`).
+
 ## MCP client configuration
 
 Point your MCP client at this package’s entrypoint, for example:
