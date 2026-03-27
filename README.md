@@ -11,6 +11,13 @@ MCP (Model Context Protocol) server for the [Clockify](https://clockify.me/) RES
 ## Install
 
 ```bash
+# via npx
+npx @lewinnovation/clockify-mcp-server
+
+# OR via pnpm globally
+pnpm add -g @lewinnovation/clockify-mcp-server
+
+# OR clone and install locally
 pnpm install
 pnpm run build
 ```
