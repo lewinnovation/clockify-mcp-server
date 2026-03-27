@@ -6,7 +6,7 @@ export function createClockifyMcpServer(config: AppConfig): McpServer {
   const server = new McpServer(
     {
       name: "@lewinnovation/clockify-mcp-server",
-      version: "0.1.3",
+      version: "0.1.4",
     },
     {
       instructions:
